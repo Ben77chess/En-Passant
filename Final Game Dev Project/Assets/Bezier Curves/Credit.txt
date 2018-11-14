@@ -1,0 +1,4 @@
+This folder represents a combination of two external pieces of work which we have combined through some slight modifications (indicated in the code via comments)
+Sources:
+https://github.com/dbrizov/Unity-BezierCurves
+https://catlikecoding.com/unity/tutorials/curves-and-splines/
