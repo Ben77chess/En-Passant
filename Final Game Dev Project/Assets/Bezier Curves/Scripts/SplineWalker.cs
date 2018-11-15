@@ -14,7 +14,8 @@ public class SplineWalker : MonoBehaviour {
 	private bool goingForward = true;
 
 	private void Update () {
-		if (goingForward) {
+		if (goingForward && !WalkerController.walkerController.paused) {
+            progress = WalkerController.walkerController.progress;
 			progress += Time.deltaTime / duration;
 			if (progress > 1f) {
 				if (mode == SplineWalkerMode.Once) {
@@ -29,13 +30,15 @@ public class SplineWalker : MonoBehaviour {
 				}
 			}
 		}
-		else {
+		else if(!goingForward && !WalkerController.walkerController.paused) {
 			progress -= Time.deltaTime / duration;
 			if (progress < 0f) {
 				progress = -progress;
 				goingForward = true;
 			}
-		}
+		} else { //paused
+            //Don't update progress...
+        }
 
 		Vector3 position = spline.GetPoint(progress);
 		transform.localPosition = position;
