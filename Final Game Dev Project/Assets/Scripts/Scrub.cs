@@ -6,15 +6,20 @@ using UnityEngine;
 public class Scrub : MonoBehaviour {
 
 
-    public Slider bar;
+    public static Slider bar;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    private void Awake() {
+        bar = this.GetComponentInParent<Slider>();
+    }
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(bar.value);
+        WalkerController.walkerController.progress = bar.normalizedValue;
 	}
+
+    
 }

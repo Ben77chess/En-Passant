@@ -10,13 +10,14 @@ public class SplineWalker : MonoBehaviour {
 
 	public SplineWalkerMode mode;
 
-	private float progress;
+	public float progress;
 	private bool goingForward = true;
 
 	private void Update () {
 		if (goingForward && !WalkerController.walkerController.paused) {
             progress = WalkerController.walkerController.progress;
 			progress += Time.deltaTime / duration;
+            WalkerController.walkerController.progress = progress;
 			if (progress > 1f) {
 				if (mode == SplineWalkerMode.Once) {
 					progress = 1f;
@@ -37,7 +38,7 @@ public class SplineWalker : MonoBehaviour {
 				goingForward = true;
 			}
 		} else { //paused
-            //Don't update progress...
+            progress = WalkerController.walkerController.progress;
         }
 
 		Vector3 position = spline.GetPoint(progress);

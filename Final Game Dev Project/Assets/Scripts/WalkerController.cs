@@ -20,6 +20,6 @@ public class WalkerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        Scrub.bar.value = progress;
 	}
 }
