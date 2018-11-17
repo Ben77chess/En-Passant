@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class WalkerController : MonoBehaviour {
 
+    
+
     public static WalkerController walkerController;
 
     public bool paused = false;
@@ -22,4 +24,6 @@ public class WalkerController : MonoBehaviour {
 	void Update () {
         Scrub.bar.value = progress;
 	}
+
+    
 }

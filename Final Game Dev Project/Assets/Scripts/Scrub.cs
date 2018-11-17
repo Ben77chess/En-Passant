@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Scrub : MonoBehaviour {
 
+    
 
     public static Slider bar;
 

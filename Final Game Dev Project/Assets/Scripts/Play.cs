@@ -21,22 +21,18 @@ public class Play : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-        if (pause.isOn) {
-            play.isOn = false;
+
+        if (play.isOn)
+        {
+            scrub.value += (Time.deltaTime * 0.1f);
         }
 
-        else if (play.isOn)
+        else if (!play.isOn)
         {
-            pause.isOn = false;
-            scrub.value = scrub.value * Time.deltaTime;
+            scrub.value = scrub.value;
         }
 
-        else
-        {
-            play.isOn = false;
-            pause.isOn = false;
-        }
+
 
 	}
 }
