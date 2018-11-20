@@ -6,10 +6,14 @@ public class CameraControl : MonoBehaviour {
 
 
     public Camera[] cameras;
+    public Canvas ui;
     private int camIndex;
 
 	// Use this for initialization
 	void Start () {
+
+        ui.worldCamera = cameras[0];
+        
 
         for (int i = 0; i < cameras.Length; i++)
         {
@@ -38,6 +42,7 @@ public class CameraControl : MonoBehaviour {
                 camIndex = 0;
             }
             cameras[camIndex].enabled = true;
+            ui.worldCamera = cameras[camIndex];
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -49,6 +54,7 @@ public class CameraControl : MonoBehaviour {
                 camIndex = cameras.Length-1;
             }
             cameras[camIndex].enabled = true;
+            ui.worldCamera = cameras[camIndex];
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -58,6 +64,7 @@ public class CameraControl : MonoBehaviour {
                 cameras[camIndex].enabled = false;
                 cameras[0].enabled = true;
                 camIndex = 0;
+                ui.worldCamera = cameras[camIndex];
             }
         }
 
@@ -68,6 +75,7 @@ public class CameraControl : MonoBehaviour {
                 cameras[camIndex].enabled = false;
                 cameras[1].enabled = true;
                 camIndex = 1;
+                ui.worldCamera = cameras[camIndex];
             }
         }
 
@@ -78,6 +86,7 @@ public class CameraControl : MonoBehaviour {
                 cameras[camIndex].enabled = false;
                 cameras[2].enabled = true;
                 camIndex = 2;
+                ui.worldCamera = cameras[camIndex];
             }
         }
 
@@ -88,6 +97,7 @@ public class CameraControl : MonoBehaviour {
                 cameras[camIndex].enabled = false;
                 cameras[3].enabled = true;
                 camIndex = 3;
+                ui.worldCamera = cameras[camIndex];
             }
         }
 
