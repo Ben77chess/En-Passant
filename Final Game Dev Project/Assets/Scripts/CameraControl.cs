@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraControl : MonoBehaviour {
 
 
     public Camera[] cameras;
     public Canvas ui;
+    public Text text;
+
     private int camIndex;
 
 	// Use this for initialization
 	void Start () {
+
 
         ui.worldCamera = cameras[0];
         
@@ -26,8 +30,36 @@ public class CameraControl : MonoBehaviour {
                 cameras[i].enabled = false;
             }
         }
-
         camIndex = 0;
+        text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
+        text.fontStyle = FontStyle.Bold;
+        text.fontSize = 18;
+    }
+
+    public void LeftButton()
+    {
+        cameras[camIndex].enabled = false;
+        camIndex--;
+        if (camIndex < 0)
+        {
+            camIndex = cameras.Length - 1;
+        }
+        cameras[camIndex].enabled = true;
+        ui.worldCamera = cameras[camIndex];
+        text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
+    }
+
+    public void RightButton()
+    {
+        cameras[camIndex].enabled = false;
+        camIndex++;
+        if (camIndex >= cameras.Length)
+        {
+            camIndex = 0;
+        }
+        cameras[camIndex].enabled = true;
+        ui.worldCamera = cameras[camIndex];
+        text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
     }
 	
 	// Update is called once per frame
@@ -43,6 +75,7 @@ public class CameraControl : MonoBehaviour {
             }
             cameras[camIndex].enabled = true;
             ui.worldCamera = cameras[camIndex];
+            text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -55,6 +88,7 @@ public class CameraControl : MonoBehaviour {
             }
             cameras[camIndex].enabled = true;
             ui.worldCamera = cameras[camIndex];
+            text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -65,6 +99,7 @@ public class CameraControl : MonoBehaviour {
                 cameras[0].enabled = true;
                 camIndex = 0;
                 ui.worldCamera = cameras[camIndex];
+                text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
             }
         }
 
@@ -76,6 +111,7 @@ public class CameraControl : MonoBehaviour {
                 cameras[1].enabled = true;
                 camIndex = 1;
                 ui.worldCamera = cameras[camIndex];
+                text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
             }
         }
 
@@ -87,6 +123,7 @@ public class CameraControl : MonoBehaviour {
                 cameras[2].enabled = true;
                 camIndex = 2;
                 ui.worldCamera = cameras[camIndex];
+                text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
             }
         }
 
@@ -98,6 +135,7 @@ public class CameraControl : MonoBehaviour {
                 cameras[3].enabled = true;
                 camIndex = 3;
                 ui.worldCamera = cameras[camIndex];
+                text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
             }
         }
 
