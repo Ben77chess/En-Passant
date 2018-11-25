@@ -8,7 +8,6 @@ public class SliderControl : MonoBehaviour {
     public Slider scrub;
     public GameObject on, off;
 
-
     public void OnChangeValue()
     {
         bool toggled = gameObject.GetComponent<Toggle>().isOn;
