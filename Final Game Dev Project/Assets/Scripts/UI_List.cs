@@ -9,7 +9,8 @@ public class UI_List : MonoBehaviour {
     public Canvas list;
     public Text listText;
     public Toggle toggle;
-    public Slider scrub;
+
+    private List<string> names;
 
     private bool wasPlaying;
 	// Use this for initialization
@@ -18,7 +19,17 @@ public class UI_List : MonoBehaviour {
         wasPlaying = false;
         list.enabled = false;
         paused = false;
+        names = new List<string>
+        {
+            "ONE",
+            "TWO",
+            "THREE"
+        };
 
+        for (int i = 0; i < names.Count; i++)
+        {
+            Debug.Log(names[i]);
+        }
 	}
 	
 	// Update is called once per frame
@@ -51,8 +62,7 @@ public class UI_List : MonoBehaviour {
         {
             wasPlaying = false;
         }
-
-        scrub.value = scrub.value;
+        toggle.isOn = false;
 
     }
 
@@ -62,7 +72,7 @@ public class UI_List : MonoBehaviour {
         
         if (wasPlaying)
         {
-            scrub.value += (Time.deltaTime * 0.1f);
+            toggle.isOn = true;
         }
         
     }
