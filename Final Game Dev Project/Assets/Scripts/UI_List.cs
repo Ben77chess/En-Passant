@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.EventSystems;
 
 public class UI_List : MonoBehaviour {
 
@@ -11,24 +13,34 @@ public class UI_List : MonoBehaviour {
     public Toggle toggle;
 
     private List<string> names;
-
     private bool wasPlaying;
+
+
 	// Use this for initialization
 	void Start () {
 
+        listText.text = "";
         wasPlaying = false;
         list.enabled = false;
         paused = false;
         names = new List<string>
         {
-            "ONE",
-            "TWO",
-            "THREE"
+            "George Milton",
+            "Shelly Milton",
+            "Julien Nizan",
+            "Bob Porter",
+            "Shelly Porter",
+            "Prosper Quincy",
+            "Robert Quincy",
+            "Sophie Warwick",
+            "Photographer ",
+            "Security ",
+            "Waiter "
         };
 
         for (int i = 0; i < names.Count; i++)
         {
-            Debug.Log(names[i]);
+            listText.text += names[i] + "\n";
         }
 	}
 	
@@ -38,12 +50,10 @@ public class UI_List : MonoBehaviour {
         if (paused)
         {
             list.enabled = true;
-            listText.enabled = true;
         }
         else
         {
             list.enabled = false;
-            listText.enabled = false;
         }
 
 	}
