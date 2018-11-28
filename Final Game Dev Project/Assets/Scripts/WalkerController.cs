@@ -9,7 +9,7 @@ public class WalkerController : MonoBehaviour {
 
     public static WalkerController walkerController;
 
-    public bool paused = false;
+    public bool paused = true;
     public float progress = 0;
 
     private void Awake() {

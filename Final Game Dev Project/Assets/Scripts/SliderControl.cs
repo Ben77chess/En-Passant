@@ -41,6 +41,7 @@ public class SliderControl : MonoBehaviour {
 	void Update () {
 
         bool toggled = gameObject.GetComponent<Toggle>().isOn;
+        WalkerController.walkerController.paused = !toggled;
 
         if (toggled)
         {
@@ -52,5 +53,7 @@ public class SliderControl : MonoBehaviour {
             scrub.value = scrub.value;
         }
 
-	}
+        WalkerController.walkerController.progress = scrub.normalizedValue;
+
+    }
 }

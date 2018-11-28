@@ -17,6 +17,7 @@ public class DialogueHolder : MonoBehaviour {
 
         wait();
         playDialogue(0);
+        playDialogue(1);
 
     }
 	

@@ -43,7 +43,7 @@ public class SplineWalker : MonoBehaviour {
 
 		Vector3 position = spline.GetPoint(progress);
 		transform.localPosition = position;
-		if (lookForward) {
+        if (lookForward && !WalkerController.walkerController.paused) {
             transform.LookAt(spline.GetPoint(progress + Time.deltaTime));//modified //(position + BezierCurves.BezierCurve3D.GetNormalOnCubicCurve(progress, this.transform.up, spline.KeyPoints[0], spline.KeyPoints[2]));
 		}
 	}
