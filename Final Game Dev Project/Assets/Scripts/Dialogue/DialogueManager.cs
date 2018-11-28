@@ -13,9 +13,12 @@ public class DialogueManager : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
+    public float startProgress = 1;
 
-    private Queue<Dialogue> dialogueQueue = new Queue<Dialogue>();
-
+    public Queue<Dialogue> dialogueQueue = new Queue<Dialogue>();
+    public void Start() {
+        dialogueActive = false;
+    }
     public void QueueDialogue(Dialogue dialogue)
     {
         // Say that we are showing more dialogues, and show them.
@@ -48,6 +51,11 @@ public class DialogueManager : MonoBehaviour
         else {
             dialogueActive = true;
         }
+
+        if(WalkerController.walkerController.progress > startProgress + .07 || WalkerController.walkerController.progress < startProgress) {
+            EndDialogue();
+            startProgress = 1;
+        }
     }
 
     private Queue<string> sentences = new Queue<string>();
@@ -79,6 +87,7 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
+        startProgress = WalkerController.walkerController.progress;
         StartCoroutine(TypeSentence(sentence));
 
     }
@@ -86,10 +95,9 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence (string sentence)
     {
         dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray())
-        {
+        foreach (char letter in sentence.ToCharArray()) {
             dialogueText.text += letter;
-            yield return null; 
+            yield return null;
         }
 
     }
@@ -101,7 +109,8 @@ public class DialogueManager : MonoBehaviour
             animator = go.GetComponent<Animator>();
         }
             animator.SetBool("IsOpen", false);
-        dialogueIsOpen = false;
+            dialogueIsOpen = false;
+            
     }
 
 }
