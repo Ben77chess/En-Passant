@@ -6,14 +6,11 @@ using UnityEngine;
 
 public class DialogueHolder : MonoBehaviour {
     public DialogueTrigger[] dialogue;
-    DialogueManager dialogueManager;
+    public DialogueManager[] dialogueManagers;
     private bool[] dialogueBools = {false, false };
+    private float[] dialogueTimes = { .1f, .22f };
     // Use this for initialization
     void Start () {
-        if (dialogueManager == null) {
-            var go = GameObject.Find("DialogueManager");
-            dialogueManager = go.GetComponent<DialogueManager>();
-        }
 
         dialogueBools[0] = false;
 
@@ -23,31 +20,35 @@ public class DialogueHolder : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(WalkerController.walkerController.progress > .1 && WalkerController.walkerController.progress < .17 && !dialogueBools[0]) {
+        for(int i = 0; i < dialogue.Length; i++) {
+            if (WalkerController.walkerController.progress > dialogueTimes[i] && WalkerController.walkerController.progress < dialogueTimes[i]+.07 && !dialogueBools[i]) {
+                dialogueBools[i] = true;
+                playDialogue(i);
+                StartCoroutine(waitToRetrigger(dialogueTimes[0], i));
+            }
+        }
+		/*if(WalkerController.walkerController.progress > .1 && WalkerController.walkerController.progress < .17 && !dialogueBools[0]) {
             dialogueBools[0] = true;
-            dialogue[0].TriggerDialogue();
-            Debug.Log("Here!");
+            playDialogue(0, dialogueManagers[0]);
             StartCoroutine(waitToRetrigger(.1f, 0));
         } else if (WalkerController.walkerController.progress > .22 && WalkerController.walkerController.progress < .29 && !dialogueBools[1]) {
             dialogueBools[1] = true;
-            dialogue[1].TriggerDialogue();
+            playDialogue(1, dialogueManagers[0]);
             Debug.Log("Here!");
             StartCoroutine(waitToRetrigger(.22f, 1));
-        }
+        }*/
     }
 
     public void playDialogue(int index) {
-        dialogue[index].SendMessage("TriggerDialogue");
+        dialogue[index].SendMessage("TriggerDialogue", dialogueTimes[index]);
     }
 
     public IEnumerator waitToRetrigger(float start, int dialogue) {
-        Debug.Log("Before while.");
         while (WalkerController.walkerController.progress >= start && WalkerController.walkerController.progress <= start + .07) {
             //Debug.Log(WalkerController.walkerController.progress);
             yield return null;
         }
         dialogueBools[dialogue] = false;
-        Debug.Log("After while.");
         yield break;
     }
 }

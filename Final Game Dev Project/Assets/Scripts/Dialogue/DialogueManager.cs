@@ -15,15 +15,19 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public float startProgress = 1;
 
+    // You need to pass the intended start time to use as startProgress
+    // You also need to make multiple animators and dialogue boxes
+
     public Queue<Dialogue> dialogueQueue = new Queue<Dialogue>();
     public void Start() {
         dialogueActive = false;
     }
-    public void QueueDialogue(Dialogue dialogue)
+    public void QueueDialogue(Dialogue dialogue, float time)
     {
         // Say that we are showing more dialogues, and show them.
         dialogueActive = true;
         dialogueQueue.Enqueue(dialogue);
+        startProgress = time;
     }
 
     void Update()
@@ -87,7 +91,6 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
-        startProgress = WalkerController.walkerController.progress;
         StartCoroutine(TypeSentence(sentence));
 
     }
