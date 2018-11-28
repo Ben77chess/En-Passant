@@ -19,7 +19,6 @@ public class DialogueHolder : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(dialogue.Length);
         for(int i = 0; i < dialogue.Length; i++) {
             if (WalkerController.walkerController.progress > dialogueTimes[i] && WalkerController.walkerController.progress < dialogueTimes[i]+.07 && !dialogueBools[i]) {
                 dialogueBools[i] = true;
