@@ -6,9 +6,8 @@ using UnityEngine;
 
 public class DialogueHolder : MonoBehaviour {
     public DialogueTrigger[] dialogue;
-    public DialogueManager[] dialogueManagers;
-    private bool[] dialogueBools = {false, false };
-    private float[] dialogueTimes = { .1f, .22f };
+    private bool[] dialogueBools = {false, false, false };
+    public float[] dialogueTimes;
     // Use this for initialization
     void Start () {
 
@@ -20,11 +19,12 @@ public class DialogueHolder : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log(dialogue.Length);
         for(int i = 0; i < dialogue.Length; i++) {
             if (WalkerController.walkerController.progress > dialogueTimes[i] && WalkerController.walkerController.progress < dialogueTimes[i]+.07 && !dialogueBools[i]) {
                 dialogueBools[i] = true;
                 playDialogue(i);
-                StartCoroutine(waitToRetrigger(dialogueTimes[0], i));
+                StartCoroutine(waitToRetrigger(dialogueTimes[i], i));
             }
         }
 		/*if(WalkerController.walkerController.progress > .1 && WalkerController.walkerController.progress < .17 && !dialogueBools[0]) {
@@ -45,7 +45,6 @@ public class DialogueHolder : MonoBehaviour {
 
     public IEnumerator waitToRetrigger(float start, int dialogue) {
         while (WalkerController.walkerController.progress >= start && WalkerController.walkerController.progress <= start + .07) {
-            //Debug.Log(WalkerController.walkerController.progress);
             yield return null;
         }
         dialogueBools[dialogue] = false;

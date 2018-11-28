@@ -10,7 +10,6 @@ public class DialogueManager : MonoBehaviour
 {
     private bool dialogueIsOpen;
     public bool dialogueActive;
-    public Text nameText;
     public Text dialogueText;
     public Animator animator;
     public float startProgress = 1;
@@ -68,7 +67,6 @@ public class DialogueManager : MonoBehaviour
     {
         
         animator.SetBool("IsOpen", true);
-        nameText.text = dialogue.name;
         dialogueIsOpen = true;
 
         sentences.Clear();

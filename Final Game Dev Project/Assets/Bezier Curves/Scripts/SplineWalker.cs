@@ -16,8 +16,7 @@ public class SplineWalker : MonoBehaviour {
 	private void Update () {
 		if (goingForward && !WalkerController.walkerController.paused) {
             progress = WalkerController.walkerController.progress;
-			progress += Time.deltaTime / duration;
-            WalkerController.walkerController.progress = progress;
+			//progress += Time.deltaTime / duration;
 			if (progress > 1f) {
 				if (mode == SplineWalkerMode.Once) {
 					progress = 1f;

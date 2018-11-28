@@ -45,7 +45,7 @@ public class SliderControl : MonoBehaviour {
 
         if (toggled)
         {
-            //scrub.value += (Time.deltaTime * 0.1f);
+            scrub.value += Time.deltaTime / 60;
         }
 
         else
