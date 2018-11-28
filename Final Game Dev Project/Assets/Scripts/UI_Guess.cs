@@ -3,32 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class UI_Guess : MonoBehaviour
 {
 
-
     public Canvas guess;
-
+    public Canvas confirm;
 
     public Button[] listButton;
     public Image[] listImage;
 
-
-    // button.GetComponent<Image>().sprite
     public Button[] guessButton;
     public Sprite[] guessSprite;
 
-
-
     private bool isGuessing;
     private int listIndex;
-    private int guessIndex;
 
 
-    public void ClickName()
+    public void ClickName(int tmpIndex)
     {
-        
+        listIndex = tmpIndex;
+
+
         if (listImage[listIndex].enabled == true)
         {
             for (int i = 0; i < guessSprite.Length; i++)
@@ -52,10 +49,10 @@ public class UI_Guess : MonoBehaviour
 
     }
 
-    /////////////////////////////////////////////////////////
 
-    public void ClickGuess()
+    public void ClickGuess(int guessIndex)
     {
+
         if (listImage[listIndex].enabled == false)
         {
             isGuessing = false;
@@ -67,13 +64,25 @@ public class UI_Guess : MonoBehaviour
     }
 
 
+    public void ClickGuess()
+    {
+        confirm.enabled = true;
+    }
+
+    public void ClickYes()
+    {
+        SceneManager.LoadScene(sceneName: "Guess");
+    }
+
+    public void ClickNo()
+    {
+        confirm.enabled = false;
+    }
+
     // Use this for initialization
     void Start()
     {
-
-        listIndex = 0;
-        guessIndex = 0;
-
+        confirm.enabled = false;
         isGuessing = false;
         guess.enabled = false;
 
@@ -84,27 +93,18 @@ public class UI_Guess : MonoBehaviour
 
         for (int i = 0; i < listButton.Length; i++)
         {
-            listButton[i].onClick.AddListener(() => this.onListClick(i));
+            int tempIndex = i;
+            listButton[i].onClick.AddListener(() => this.ClickName(tempIndex));
+
         }
 
         for (int i = 0; i < guessButton.Length; i++)
         {
-            guessButton[i].onClick.AddListener(() => this.onGuessClick(i));
+            int copyIndex = i;
+            guessButton[i].onClick.AddListener(() => this.ClickGuess(copyIndex));
+
         }
 
-    }
-
-
-    public void onListClick(int i)
-    {
-        listIndex = i-1;
-
-    }
-
-
-    public void onGuessClick(int i)
-    {
-        guessIndex = i-1;
     }
 
 
