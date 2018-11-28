@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class UI_Guess : MonoBehaviour
 {
@@ -70,7 +71,7 @@ public class UI_Guess : MonoBehaviour
 
     public void ClickYes()
     {
-        Debug.Log("YES");
+        SceneManager.LoadScene(sceneName: "Guess");
     }
 
     public void ClickNo()
