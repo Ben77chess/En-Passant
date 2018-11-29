@@ -4,29 +4,34 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartScreen : MonoBehaviour {
-
+    
+    //Canvases for different buttons and start screen
     public Canvas start;
     public Canvas control;
     public Canvas credit;
     public Canvas message;
 
+    // Starts the game
     public void ClickMessage()
     {
         SceneManager.LoadScene(sceneName: "UI");
     }
 
+    // Loads pre-game message to explain the situation to the player
     public void ClickStart()
     {
         start.enabled = false;
         message.enabled = true;
     }
 
+    // Text of controls of the game
     public void ClickControls()
     {
         start.enabled = false;
         control.enabled = true;
     }
 
+    // Credits
     public void ClickCredits()
     {
         start.enabled = false;
@@ -56,8 +61,4 @@ public class StartScreen : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

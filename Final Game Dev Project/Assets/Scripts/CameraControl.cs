@@ -5,20 +5,23 @@ using UnityEngine.UI;
 
 public class CameraControl : MonoBehaviour {
 
-
+    // List of cameras to switch between
     public Camera[] cameras;
+    // Canvas that holds the camera switching UI
     public Canvas ui;
+    // Camera indicator
     public Text text;
 
+    // Index of camera
     private int camIndex;
 
 	// Use this for initialization
 	void Start () {
 
-
+        // Start at the first camera
         ui.worldCamera = cameras[0];
         
-
+        // Disables other cameras for optimum performance
         for (int i = 0; i < cameras.Length; i++)
         {
             if (i == 0)
@@ -30,12 +33,14 @@ public class CameraControl : MonoBehaviour {
                 cameras[i].enabled = false;
             }
         }
+        // Sets camera indicator text
         camIndex = 0;
         text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
         text.fontStyle = FontStyle.Bold;
         text.fontSize = 18;
     }
 
+    // Moves to previous camera in list if left UI button clicked
     public void LeftButton()
     {
         cameras[camIndex].enabled = false;
@@ -49,6 +54,7 @@ public class CameraControl : MonoBehaviour {
         text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
     }
 
+    // Moves to next camera in list if right UI button clicked
     public void RightButton()
     {
         cameras[camIndex].enabled = false;
@@ -65,6 +71,7 @@ public class CameraControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+        // Changes camera based on arrow/top-row-number key presses
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             cameras[camIndex].enabled = false;

@@ -6,10 +6,14 @@ using UnityEngine.EventSystems;
 
 public class UI_List : MonoBehaviour {
 
+    // Check if paused
     public static bool paused;
+    // Canvas for list overlay
     public Canvas list;
+    // Gets status of play/pause before opening list overlay
     public Toggle toggle;
     
+    // Gets whether player had slider moving
     private bool wasPlaying;
 
 
@@ -24,6 +28,7 @@ public class UI_List : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        // Pauses game on list overlay
         if (paused)
         {
             list.enabled = true;
@@ -35,6 +40,7 @@ public class UI_List : MonoBehaviour {
 
 	}
 
+    // Opens list overlay, checks for playing status
     public void listButton()
     {
         paused = true;
@@ -53,6 +59,7 @@ public class UI_List : MonoBehaviour {
 
     }
 
+    // Exits list overlay, resumes play if playing before opening list overlay
     public void exitListButton()
     {
         paused = false;

@@ -26,10 +26,6 @@ public class SliderControl : MonoBehaviour {
 
     }
 
-
-
-
-
 	// Use this for initialization
 	void Start () {
         gameObject.GetComponent<Toggle>().isOn = false;
