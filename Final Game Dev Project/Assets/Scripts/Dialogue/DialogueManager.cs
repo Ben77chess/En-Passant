@@ -10,17 +10,23 @@ public class DialogueManager : MonoBehaviour
 {
     private bool dialogueIsOpen;
     public bool dialogueActive;
-    public Text nameText;
     public Text dialogueText;
     public Animator animator;
+    public float startProgress = 1;
 
-    private Queue<Dialogue> dialogueQueue = new Queue<Dialogue>();
+    // You need to pass the intended start time to use as startProgress
+    // You also need to make multiple animators and dialogue boxes
 
-    public void QueueDialogue(Dialogue dialogue)
+    public Queue<Dialogue> dialogueQueue = new Queue<Dialogue>();
+    public void Start() {
+        dialogueActive = false;
+    }
+    public void QueueDialogue(Dialogue dialogue, float time)
     {
         // Say that we are showing more dialogues, and show them.
         dialogueActive = true;
         dialogueQueue.Enqueue(dialogue);
+        startProgress = time;
     }
 
     void Update()
@@ -48,6 +54,11 @@ public class DialogueManager : MonoBehaviour
         else {
             dialogueActive = true;
         }
+
+        if(WalkerController.walkerController.progress > startProgress + .07 || WalkerController.walkerController.progress < startProgress) {
+            EndDialogue();
+            startProgress = 1;
+        }
     }
 
     private Queue<string> sentences = new Queue<string>();
@@ -56,7 +67,6 @@ public class DialogueManager : MonoBehaviour
     {
         
         animator.SetBool("IsOpen", true);
-        nameText.text = dialogue.name;
         dialogueIsOpen = true;
 
         sentences.Clear();
@@ -86,10 +96,9 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence (string sentence)
     {
         dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray())
-        {
+        foreach (char letter in sentence.ToCharArray()) {
             dialogueText.text += letter;
-            yield return null; 
+            yield return null;
         }
 
     }
@@ -101,7 +110,8 @@ public class DialogueManager : MonoBehaviour
             animator = go.GetComponent<Animator>();
         }
             animator.SetBool("IsOpen", false);
-        dialogueIsOpen = false;
+            dialogueIsOpen = false;
+            
     }
 
 }
