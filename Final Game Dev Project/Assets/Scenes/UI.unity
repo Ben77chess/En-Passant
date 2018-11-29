@@ -1445,7 +1445,6 @@ GameObject:
   m_Component:
   - component: {fileID: 364289389}
   - component: {fileID: 364289388}
-  - component: {fileID: 364289390}
   m_Layer: 5
   m_Name: Progress
   m_TagString: Untagged
@@ -1523,18 +1522,6 @@ RectTransform:
   m_AnchoredPosition: {x: 15.7, y: 90}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &364289390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114309108980722722, guid: 88c8057c6806342448ba0b7301efb8ba,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 364289387}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6e79a8d65db16e46a17a69783dd23e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &398631071
 GameObject:
   m_ObjectHideFlags: 0

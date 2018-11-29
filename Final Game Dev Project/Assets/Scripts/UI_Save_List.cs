@@ -25,7 +25,7 @@ public class UI_Save_List : MonoBehaviour {
 
         
         // Only run on the game scene to intialize variables
-        if (SceneManager.GetActiveScene().name == "UI")
+        if (SceneManager.GetActiveScene().name == "Whitebox")
         {
             setUp();
         }
@@ -36,10 +36,10 @@ public class UI_Save_List : MonoBehaviour {
 	void Update () {
 
         // Saves list to build in final scene
-        if (SceneManager.GetActiveScene().name == "UI")
+        if (SceneManager.GetActiveScene().name == "Whitebox")
         {
             if(guess.confirm.enabled)
-        {
+            {
                 saveList();
             }
         }
