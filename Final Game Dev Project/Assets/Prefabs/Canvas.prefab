@@ -475,7 +475,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224573192164996808}
   - component: {fileID: 114608192093760662}
-  - component: {fileID: 114309108980722722}
   m_Layer: 5
   m_Name: Progress
   m_TagString: Untagged
@@ -545,6 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guess: {fileID: 223746908798637924}
+  confirm: {fileID: 0}
   listButton:
   - {fileID: 114298021935386652}
   listImage:
@@ -843,17 +843,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114309108980722722
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911723784463722}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6e79a8d65db16e46a17a69783dd23e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114327084716566034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1256,7 +1245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   list: {fileID: 223429496402558988}
-  listText: {fileID: 114746450833490218}
   toggle: {fileID: 114690473377523316}
 --- !u!114 &114652923983556910
 MonoBehaviour:

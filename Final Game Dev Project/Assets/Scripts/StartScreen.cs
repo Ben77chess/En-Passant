@@ -14,7 +14,7 @@ public class StartScreen : MonoBehaviour {
     // Starts the game
     public void ClickMessage()
     {
-        SceneManager.LoadScene(sceneName: "UI");
+        SceneManager.LoadScene(sceneName: "Whitebox");
     }
 
     // Loads pre-game message to explain the situation to the player
