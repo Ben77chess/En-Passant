@@ -10,11 +10,14 @@ public class StartScreen : MonoBehaviour {
     public Canvas control;
     public Canvas credit;
     public Canvas message;
+    // Audio source for smoother scene switching with music change
+    AudioSource audio;
 
     // Starts the game
     public void ClickMessage()
     {
-        SceneManager.LoadScene(sceneName: "Whitebox");
+        audio.mute = true;
+        StartCoroutine("Wait");
     }
 
     // Loads pre-game message to explain the situation to the player
@@ -58,7 +61,14 @@ public class StartScreen : MonoBehaviour {
         control.enabled = false;
         credit.enabled = false;
         message.enabled = false;
+        audio = Camera.main.transform.GetComponent<AudioSource>();
 
-	}
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.15f);
+        SceneManager.LoadScene(sceneName: "Whitebox");
+    }
 	
 }

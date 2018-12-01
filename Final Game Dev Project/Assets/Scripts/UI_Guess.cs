@@ -24,7 +24,6 @@ public class UI_Guess : MonoBehaviour
     // Index of selected list name button
     private int listIndex;
 
-
     // Handles choice change on character association with name
     public void ClickName(int tmpIndex)
     {
@@ -133,4 +132,5 @@ public class UI_Guess : MonoBehaviour
         }
 
     }
+
 }

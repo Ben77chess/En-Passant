@@ -12,6 +12,8 @@ public class CameraControl : MonoBehaviour {
     // Camera indicator
     public Text text;
 
+    public Transform _AudioListener;
+
     // Index of camera
     private int camIndex;
 
@@ -38,6 +40,9 @@ public class CameraControl : MonoBehaviour {
         text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
         text.fontStyle = FontStyle.Bold;
         text.fontSize = 18;
+        _AudioListener.parent = cameras[camIndex].transform;
+        _AudioListener.localPosition = Vector3.zero;
+        _AudioListener.localRotation = Quaternion.identity;
     }
 
     // Moves to previous camera in list if left UI button clicked
@@ -52,6 +57,9 @@ public class CameraControl : MonoBehaviour {
         cameras[camIndex].enabled = true;
         ui.worldCamera = cameras[camIndex];
         text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
+        _AudioListener.parent = cameras[camIndex].transform;
+        _AudioListener.localPosition = Vector3.zero;
+        _AudioListener.localRotation = Quaternion.identity;
     }
 
     // Moves to next camera in list if right UI button clicked
@@ -66,6 +74,9 @@ public class CameraControl : MonoBehaviour {
         cameras[camIndex].enabled = true;
         ui.worldCamera = cameras[camIndex];
         text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
+        _AudioListener.parent = cameras[camIndex].transform;
+        _AudioListener.localPosition = Vector3.zero;
+        _AudioListener.localRotation = Quaternion.identity;
     }
 	
 	// Update is called once per frame
@@ -83,6 +94,9 @@ public class CameraControl : MonoBehaviour {
             cameras[camIndex].enabled = true;
             ui.worldCamera = cameras[camIndex];
             text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
+            _AudioListener.parent = cameras[camIndex].transform;
+            _AudioListener.localPosition = Vector3.zero;
+            _AudioListener.localRotation = Quaternion.identity;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -96,6 +110,9 @@ public class CameraControl : MonoBehaviour {
             cameras[camIndex].enabled = true;
             ui.worldCamera = cameras[camIndex];
             text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
+            _AudioListener.parent = cameras[camIndex].transform;
+            _AudioListener.localPosition = Vector3.zero;
+            _AudioListener.localRotation = Quaternion.identity;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -107,6 +124,9 @@ public class CameraControl : MonoBehaviour {
                 camIndex = 0;
                 ui.worldCamera = cameras[camIndex];
                 text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
+                _AudioListener.parent = cameras[camIndex].transform;
+                _AudioListener.localPosition = Vector3.zero;
+                _AudioListener.localRotation = Quaternion.identity;
             }
         }
 
@@ -119,6 +139,9 @@ public class CameraControl : MonoBehaviour {
                 camIndex = 1;
                 ui.worldCamera = cameras[camIndex];
                 text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
+                _AudioListener.parent = cameras[camIndex].transform;
+                _AudioListener.localPosition = Vector3.zero;
+                _AudioListener.localRotation = Quaternion.identity;
             }
         }
 
@@ -131,6 +154,9 @@ public class CameraControl : MonoBehaviour {
                 camIndex = 2;
                 ui.worldCamera = cameras[camIndex];
                 text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
+                _AudioListener.parent = cameras[camIndex].transform;
+                _AudioListener.localPosition = Vector3.zero;
+                _AudioListener.localRotation = Quaternion.identity;
             }
         }
 
@@ -143,6 +169,9 @@ public class CameraControl : MonoBehaviour {
                 camIndex = 3;
                 ui.worldCamera = cameras[camIndex];
                 text.text = string.Format("{0} {1}", "CAMERA", (camIndex + 1).ToString());
+                _AudioListener.parent = cameras[camIndex].transform;
+                _AudioListener.localPosition = Vector3.zero;
+                _AudioListener.localRotation = Quaternion.identity;
             }
         }
 
