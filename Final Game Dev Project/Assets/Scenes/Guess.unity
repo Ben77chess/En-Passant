@@ -595,6 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessRight: {fileID: 773560360}
   guessWrong: {fileID: 337548727}
+  choosing: {fileID: 1228669134}
   mouse: {fileID: 2100000, guid: 22262639920f43d6be32430e4e58350d, type: 2}
 --- !u!1001 &144178995
 Prefab:
@@ -675,6 +676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessRight: {fileID: 773560360}
   guessWrong: {fileID: 337548727}
+  choosing: {fileID: 1228669134}
   mouse: {fileID: 2100000, guid: 22262639920f43d6be32430e4e58350d, type: 2}
 --- !u!1 &185245679
 GameObject:
@@ -803,7 +805,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Unfortunately, the murderer escaped!
+  m_text: Unfortunately, the suspect you selected had a solid alibi and the real murderer
+    escaped!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -871,12 +874,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 192742064}
-    characterCount: 36
+    characterCount: 88
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 4
+    spaceCount: 13
+    wordCount: 14
     linkCount: 0
-    lineCount: 2
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -1323,6 +1326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessRight: {fileID: 773560360}
   guessWrong: {fileID: 337548727}
+  choosing: {fileID: 1228669134}
   mouse: {fileID: 2100000, guid: 22262639920f43d6be32430e4e58350d, type: 2}
 --- !u!1 &330872866 stripped
 GameObject:
@@ -1356,6 +1360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessRight: {fileID: 773560360}
   guessWrong: {fileID: 337548727}
+  choosing: {fileID: 1228669134}
   mouse: {fileID: 2100000, guid: 22262639920f43d6be32430e4e58350d, type: 2}
 --- !u!1 &337548724
 GameObject:
@@ -2061,6 +2066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessRight: {fileID: 773560360}
   guessWrong: {fileID: 337548727}
+  choosing: {fileID: 1228669134}
   mouse: {fileID: 2100000, guid: 22262639920f43d6be32430e4e58350d, type: 2}
 --- !u!1 &600060954
 GameObject:
@@ -2194,6 +2200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessRight: {fileID: 773560360}
   guessWrong: {fileID: 337548727}
+  choosing: {fileID: 1228669134}
   mouse: {fileID: 2100000, guid: 22262639920f43d6be32430e4e58350d, type: 2}
 --- !u!1 &627253250
 GameObject:
@@ -3411,6 +3418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessRight: {fileID: 773560360}
   guessWrong: {fileID: 337548727}
+  choosing: {fileID: 1228669134}
   mouse: {fileID: 2100000, guid: 22262639920f43d6be32430e4e58350d, type: 2}
 --- !u!1 &1043220547
 GameObject:
@@ -3784,8 +3792,8 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 1
+  m_Camera: {fileID: 1516131657}
+  m_PlaneDistance: 1.5
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -4195,7 +4203,10 @@ MonoBehaviour:
   m_text: 'Congratulations!
 
 
-    You solved the mystery and helped us catch the murderer!'
+    You solved the mystery and helped us catch the murderer!
+
+
+    Thank you for playing!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4263,12 +4274,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1247412070}
-    characterCount: 74
+    characterCount: 98
     spriteCount: 0
-    spaceCount: 11
-    wordCount: 11
+    spaceCount: 16
+    wordCount: 15
     linkCount: 0
-    lineCount: 5
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -4468,6 +4479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessRight: {fileID: 773560360}
   guessWrong: {fileID: 337548727}
+  choosing: {fileID: 1228669134}
   mouse: {fileID: 2100000, guid: 22262639920f43d6be32430e4e58350d, type: 2}
 --- !u!1001 &1291620676
 Prefab:
@@ -4771,6 +4783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessRight: {fileID: 773560360}
   guessWrong: {fileID: 337548727}
+  choosing: {fileID: 1228669134}
   mouse: {fileID: 2100000, guid: 22262639920f43d6be32430e4e58350d, type: 2}
 --- !u!1 &1461935781
 GameObject:
@@ -5270,6 +5283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessRight: {fileID: 773560360}
   guessWrong: {fileID: 337548727}
+  choosing: {fileID: 1228669134}
   mouse: {fileID: 2100000, guid: 22262639920f43d6be32430e4e58350d, type: 2}
 --- !u!1001 &1598551544
 Prefab:
@@ -5393,7 +5407,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 144178998}
+      - m_Target: {fileID: 622634694}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -5545,6 +5559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessRight: {fileID: 773560360}
   guessWrong: {fileID: 337548727}
+  choosing: {fileID: 1228669134}
   mouse: {fileID: 2100000, guid: 22262639920f43d6be32430e4e58350d, type: 2}
 --- !u!1 &1774393533
 GameObject:
@@ -5730,6 +5745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessRight: {fileID: 773560360}
   guessWrong: {fileID: 337548727}
+  choosing: {fileID: 1228669134}
   mouse: {fileID: 2100000, guid: 22262639920f43d6be32430e4e58350d, type: 2}
 --- !u!1 &1894487880
 GameObject:

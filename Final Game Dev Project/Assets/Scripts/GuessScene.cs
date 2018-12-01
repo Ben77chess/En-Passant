@@ -9,6 +9,8 @@ public class GuessScene : MonoBehaviour {
     public Canvas guessRight;
     public Canvas guessWrong;
 
+    public Canvas choosing;
+
     // Materials to change on mouseover, and save original material when not mouseover
     public Material mouse;
     private Material startMaterial;
@@ -16,6 +18,7 @@ public class GuessScene : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+        choosing.enabled = true;
         // Hides end game content until choice is made
         guessRight.enabled = false;
         guessWrong.enabled = false;
@@ -23,21 +26,27 @@ public class GuessScene : MonoBehaviour {
 	}
 
     // On mouse click, check if clicked object was the murderer or not
+    // Loads overlay for guess choice and disables choosing canvas
     private void OnMouseDown()
     {
         if(this.transform.name != "PawnDark")
         {
             guessWrong.enabled = true;
+            choosing.enabled = false;
         }
         else
         {
             guessRight.enabled = true;
+            choosing.enabled = false;
         }
     }
 
     // Restarts game regardless of choice outcome
     public void OnClick()
     {
+        choosing.enabled = false;
+        guessRight.enabled = false;
+        guessWrong.enabled = false;
         SceneManager.LoadScene(sceneName: "Start");
     }
 
