@@ -1,0 +1,2 @@
+The scripts in this folder began as the scripts presented in the following tutorial: https://www.youtube.com/watch?v=_nRzoTzeyxU
+They have been heavily modified from their original condition to function as desired within the context of our game.

@@ -15,8 +15,7 @@ public class SplineWalker : MonoBehaviour {
 
 	private void Update () {
 		if (goingForward && !WalkerController.walkerController.paused) {
-            progress = WalkerController.walkerController.progress;
-			//progress += Time.deltaTime / duration;
+            progress = WalkerController.walkerController.progress; //Global variable control
 			if (progress > 1f) {
 				if (mode == SplineWalkerMode.Once) {
 					progress = 1f;
@@ -43,7 +42,7 @@ public class SplineWalker : MonoBehaviour {
 		Vector3 position = spline.GetPoint(progress);
 		transform.localPosition = position;
         if (lookForward && !WalkerController.walkerController.paused) {
-            transform.LookAt(spline.GetPoint(progress + Time.deltaTime));//modified //(position + BezierCurves.BezierCurve3D.GetNormalOnCubicCurve(progress, this.transform.up, spline.KeyPoints[0], spline.KeyPoints[2]));
+            transform.LookAt(spline.GetPoint(progress + Time.deltaTime));//Not actually used in our final iteration
 		}
 	}
 }

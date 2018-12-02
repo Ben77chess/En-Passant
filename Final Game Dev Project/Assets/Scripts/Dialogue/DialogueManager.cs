@@ -14,9 +14,6 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public float startProgress = 1;
 
-    // You need to pass the intended start time to use as startProgress
-    // You also need to make multiple animators and dialogue boxes
-
     public Queue<Dialogue> dialogueQueue = new Queue<Dialogue>();
     public void Start() {
         dialogueActive = false;
@@ -26,15 +23,11 @@ public class DialogueManager : MonoBehaviour
         // Say that we are showing more dialogues, and show them.
         dialogueActive = true;
         dialogueQueue.Enqueue(dialogue);
-        startProgress = time;
+        startProgress = time; //the beginning of the range over which this dialogue should be shown
     }
 
     void Update()
     {
-        //if (animator == null) {
-        //    var go = GameObject.Find("DialogueBox");
-        //    animator = go.GetComponent<Animator>();
-        //}
         // If there's no dialogue open
         if (!dialogueIsOpen)
         {
@@ -55,7 +48,7 @@ public class DialogueManager : MonoBehaviour
             dialogueActive = true;
         }
 
-        if(WalkerController.walkerController.progress > startProgress + .07 || WalkerController.walkerController.progress < startProgress) {
+        if(WalkerController.walkerController.progress > startProgress + .07 || WalkerController.walkerController.progress < startProgress) { // The dialogue only ends if we are outside the time range!
             EndDialogue();
             startProgress = 1;
         }
