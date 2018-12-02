@@ -22,8 +22,8 @@ public class GuessScene : MonoBehaviour {
         // Hides end game content until choice is made
         guessRight.enabled = false;
         guessWrong.enabled = false;
-
-	}
+        Camera.main.GetComponent<AudioSource>().loop = true;
+    }
 
     // On mouse click, check if clicked object was the murderer or not
     // Loads overlay for guess choice and disables choosing canvas

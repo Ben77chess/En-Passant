@@ -29,10 +29,12 @@ public class CameraControl : MonoBehaviour {
             if (i == 0)
             {
                 cameras[i].enabled = true;
+                cameras[i].GetComponent<AudioSource>().loop = true;
             }
             else
             {
                 cameras[i].enabled = false;
+                cameras[i].GetComponent<AudioSource>().loop = true;
             }
         }
         // Sets camera indicator text

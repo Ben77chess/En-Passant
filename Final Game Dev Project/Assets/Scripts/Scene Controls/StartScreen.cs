@@ -62,7 +62,7 @@ public class StartScreen : MonoBehaviour {
         credit.enabled = false;
         message.enabled = false;
         audio = Camera.main.transform.GetComponent<AudioSource>();
-
+        Camera.main.GetComponent<AudioSource>().loop = true;
     }
 
     private IEnumerator Wait()
